@@ -2,9 +2,11 @@
   "name": "floema",
   "version": "1.0.0",
   "scripts": {
-    "build": "webpack --progress --config webpack.config.build.js",
-    "development": "webpack serve --progress --config webpack.config.development.js",
-    "start": "npm run development"
+    "ba:build": "node app.js",
+    "ba:dev": "nodemon app.js",
+    "fr:build": "webpack --progress --config webpack.config.build.js",
+    "fr:dev": "webpack serve --progress --config webpack.config.development.js",
+    "start": "concurrently --kill-others \"npm run ba:dev\" \"npm run fr:dev\""
   },
   "author": "Ewald van Veen",
   "license": "ISC",
@@ -33,6 +35,10 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@babel/core": "^7.16.7"
+    "@babel/core": "^7.16.7",
+    "concurrently": "^7.0.0",
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15",
+    "pug": "^3.0.2"
   }
 }
